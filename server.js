@@ -9,17 +9,17 @@ const app = express()
 
 
 //// Conection à la db
-const Shop = require('./models/shop.model');
-const database = require('./database');
+//const Shop = require('./models/shop.model');
+// const database = require('./database');
 
-database(URL_MONGODB)
-    .then((db)=>{
-        console.log('Mongo connection OK');
-    })
-    .catch((err)=>{
-        console.log('connection failed');
-        process.exit(1)
-    })
+// database(URL_MONGODB)
+//     .then((db)=>{
+//         console.log('Mongo connection OK');
+//     })
+//     .catch((err)=>{
+//         console.log('connection failed');
+//         process.exit(1)
+//     })
 
 
 app.use(express.static('public'));

@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
-module.exports= async (urlConnection)=>{
+// module.exports= async (urlConnection)=>{
 
-    await mongoose.connect(urlConnection,{
-            /// options ici
-    })
-    console.log('Connection MongoDB successfull ! ');
-    return mongoose.connection
-}
+//     await mongoose.connect(urlConnection,{
+//             /// options ici
+//     })
+//     console.log('Connection MongoDB successfull ! ');
+//     return mongoose.connection
+// }
