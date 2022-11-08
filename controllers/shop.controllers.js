@@ -1,7 +1,7 @@
 const shopController = {
 
     index : (req, res)=>{
-        res.sendStatus(501)
+        res.render('shop/index')
     }
 }
 
