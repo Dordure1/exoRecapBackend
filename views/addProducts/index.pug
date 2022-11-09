@@ -1,0 +1,16 @@
+extends ../shared/base
+block content
+    h1 Add bikes 
+
+    form(method="POST")
+        p Name :
+            input(type="text", name='name', placeholder="name")
+        p description : 
+            input(type="text", name='desc', placeholder="description")
+        p picture : 
+            input(type="text", name='picture', placeholder="picture link")
+        p Available : 
+            input(type="boolean", name='isAvai', placeholder="True/false")
+        p price : 
+            input(type="number", name='price', placeholder="Price")
+        button(type='submit') Submit

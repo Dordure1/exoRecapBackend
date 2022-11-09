@@ -26,6 +26,7 @@
     "tedious": "^15.1.0"
   },
   "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
     "nodemon": "^2.0.20",
     "sequelize-cli": "^6.5.2"
   }

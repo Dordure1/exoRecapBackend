@@ -13,7 +13,6 @@ function model(sequelize){
     {
         timestamps: false,
         tableName:"Product"
-
     }
     return sequelize.define("Product", attributes, options)
 }

@@ -13,6 +13,13 @@ async function getById(id){
 
 async function create(data){
 
+    await db.Product.create({
+        name : data.name, 
+        description : data.desc,
+        picture : data.picture,
+        isAvailable : data.isAvai,
+        price : data.price
+    })
 }
 
 async function update(id, data){
