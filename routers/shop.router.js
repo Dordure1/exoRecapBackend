@@ -5,6 +5,7 @@ const shopRouter = express.Router()
 
 
 shopRouter.get("/", shopController.index)
+shopRouter.get("/details/:id", shopController.details)
 
 
 module.exports = shopRouter

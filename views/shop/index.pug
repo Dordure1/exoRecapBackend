@@ -1,5 +1,7 @@
 extends ../shared/base
 block content
+
+    -var products=productDatas
     section.section-products
         .container
             .row.justify-content-center.text-center
@@ -8,166 +10,170 @@ block content
                         h3 Featured Product
                         h2 Popular Products
             .row
-                .col-md-6.col-lg-4.col-xl-3
-                    #product-1.single-product
-                        .part-1.before(style=`background-image: url("../image/honda.png")`)&attributes(attributes)
-                            ul
-                                li
-                                    a(href='#')
-                                        i.fas.fa-shopping-cart.iconDVA
-                                li
-                                    a(href='#')
-                                        i.fas.fa-heart.iconDVA                       
-                        .part-2
-                            h3.product-title yolo
-                            h4.product-old-price $79.99
-                            h4.product-price $49.99
-                .col-md-6.col-lg-4.col-xl-3
-                    #product-2.single-product
-                        .part-1
-                            span.discount 15% off
+                each product in products
+                    .col-md-6.col-lg-4.col-xl-3
+                        #product-1.single-product
+                            //- .part-1.before(style=`background-image: url("../image/honda.png")`)&attributes(attributes)
+                            .part-1.before(style=`background-image: url("${product.picture}")`)&attributes(attributes)
                                 ul
                                     li
-                                        a(href='#')
-                                            i.fas.fa-shopping-cart
+                                        a(href=`shop/details/${product.idProduct}`)
+                                            i.fas.fa-shopping-cart.iconDVA
                                     li
                                         a(href='#')
-                                            i.fas.fa-heart
-                                    li
-                                        a(href='#')
-                                            i.fas.fa-plus
-                                    li
-                                        a(href='#')
-                                            i.fas.fa-expand
-                        .part-2
-                            h3.product-title Here Product Title
-                            h4.product-price $49.99
-                .col-md-6.col-lg-4.col-xl-3
-                    #product-3.single-product
-                        .part-1
-                            ul
-                                li
-                                    a(href='#')
-                                    i.fas.fa-shopping-cart
-                                li
-                                    a(href='#')
-                                        i.fas.fa-heart
-                                li
-                                    a(href='#')
-                                        i.fas.fa-plus
-                                li
-                                    a(href='#')
-                                        i.fas.fa-expand
-                        .part-2
-                            h3.product-title Here Product Title
-                            h4.product-old-price $79.99
-                            h4.product-price $49.99
-                // Single Product
-                .col-md-6.col-lg-4.col-xl-3
-                    #product-4.single-product
-                        .part-1
-                            span.new new
-                                ul
-                                    li
-                                        a(href='#')
-                                        i.fas.fa-shopping-cart
-                                    li
-                                        a(href='#')
-                                        i.fas.fa-heart
-                                    li
-                                        a(href='#')
-                                        i.fas.fa-plus
-                                    li
-                                        a(href='#')
-                                        i.fas.fa-expand
-                        .part-2
-                            h3.product-title Here Product Title
-                            h4.product-price $49.99
-                // Single Product
-                .col-md-6.col-lg-4.col-xl-3
-                    #product-1.single-product
-                        .part-1
-                            ul
-                                li
-                                    a(href='#')
-                                    i.fas.fa-shopping-cart
-                                li
-                                    a(href='#')
-                                    i.fas.fa-heart
-                                li
-                                    a(href='#')
-                                    i.fas.fa-plus
-                                li
-                                    a(href='#')
-                                    i.fas.fa-expand
-                        .part-2
-                            h3.product-title Here Product Title
-                            h4.product-old-price $79.99
-                            h4.product-price $49.99
-                // Single Product
-                .col-md-6.col-lg-4.col-xl-3
-                    #product-2.single-product
-                        .part-1
-                            span.discount 15% off
-                            ul
-                                li
-                                    a(href='#')
-                                    i.fas.fa-shopping-cart
-                                li
-                                    a(href='#')
-                                    i.fas.fa-heart
-                                li
-                                    a(href='#')
-                                    i.fas.fa-plus
-                                li
-                                    a(href='#')
-                                    i.fas.fa-expand
-                        .part-2
-                            h3.product-title Here Product Title
-                            h4.product-price $49.99
-                // Single Product
-                .col-md-6.col-lg-4.col-xl-3
-                    #product-3.single-product
-                        .part-1
-                            ul
-                                li
-                                    a(href='#')
-                                    i.fas.fa-shopping-cart
-                                li
-                                    a(href='#')
-                                    i.fas.fa-heart
-                                li
-                                    a(href='#')
-                                    i.fas.fa-plus
-                                li
-                                    a(href='#')
-                                    i.fas.fa-expand
-                        .part-2
-                            h3.product-title Here Product Title
-                            h4.product-old-price $79.99
-                            h4.product-price $49.99
-                // Single Product
-                .col-md-6.col-lg-4.col-xl-3
-                    #product-4.single-product
-                        .part-1
-                            span.new new
-                                ul
-                                    li
-                                        a(href='#')
-                                        i.fas.fa-shopping-cart
-                                    li
-                                        a(href='#')
-                                        i.fas.fa-heart
-                                    li
-                                        a(href='#')
-                                        i.fas.fa-plus
-                                    li
-                                        a(href='#')
-                                        i.fas.fa-expand
-                        .part-2
-                            h3.product-title Here Product Title
-                            h4.product-price $49.99
-        // partial
+                                            i.fas.fa-heart.iconDVA                       
+                            .part-2
+                                h2.product-title
+                                    b
+                                        i=product.description
+                                h3.product-title=product.name
+                                h4.product-price=product.price +" €"
+        //-         .col-md-6.col-lg-4.col-xl-3
+        //-             #product-2.single-product
+        //-                 .part-1
+        //-                     span.discount 15% off
+        //-                         ul
+        //-                             li
+        //-                                 a(href='#')
+        //-                                     i.fas.fa-shopping-cart
+        //-                             li
+        //-                                 a(href='#')
+        //-                                     i.fas.fa-heart
+        //-                             li
+        //-                                 a(href='#')
+        //-                                     i.fas.fa-plus
+        //-                             li
+        //-                                 a(href='#')
+        //-                                     i.fas.fa-expand
+        //-                 .part-2
+        //-                     h3.product-title Here Product Title
+        //-                     h4.product-price $49.99
+        //-         .col-md-6.col-lg-4.col-xl-3
+        //-             #product-3.single-product
+        //-                 .part-1
+        //-                     ul
+        //-                         li
+        //-                             a(href='#')
+        //-                             i.fas.fa-shopping-cart
+        //-                         li
+        //-                             a(href='#')
+        //-                                 i.fas.fa-heart
+        //-                         li
+        //-                             a(href='#')
+        //-                                 i.fas.fa-plus
+        //-                         li
+        //-                             a(href='#')
+        //-                                 i.fas.fa-expand
+        //-                 .part-2
+        //-                     h3.product-title Here Product Title
+        //-                     h4.product-old-price $79.99
+        //-                     h4.product-price $49.99
+        //-         // Single Product
+        //-         .col-md-6.col-lg-4.col-xl-3
+        //-             #product-4.single-product
+        //-                 .part-1
+        //-                     span.new new
+        //-                         ul
+        //-                             li
+        //-                                 a(href='#')
+        //-                                 i.fas.fa-shopping-cart
+        //-                             li
+        //-                                 a(href='#')
+        //-                                 i.fas.fa-heart
+        //-                             li
+        //-                                 a(href='#')
+        //-                                 i.fas.fa-plus
+        //-                             li
+        //-                                 a(href='#')
+        //-                                 i.fas.fa-expand
+        //-                 .part-2
+        //-                     h3.product-title Here Product Title
+        //-                     h4.product-price $49.99
+        //-         // Single Product
+        //-         .col-md-6.col-lg-4.col-xl-3
+        //-             #product-1.single-product
+        //-                 .part-1
+        //-                     ul
+        //-                         li
+        //-                             a(href='#')
+        //-                             i.fas.fa-shopping-cart
+        //-                         li
+        //-                             a(href='#')
+        //-                             i.fas.fa-heart
+        //-                         li
+        //-                             a(href='#')
+        //-                             i.fas.fa-plus
+        //-                         li
+        //-                             a(href='#')
+        //-                             i.fas.fa-expand
+        //-                 .part-2
+        //-                     h3.product-title Here Product Title
+        //-                     h4.product-old-price $79.99
+        //-                     h4.product-price $49.99
+        //-         // Single Product
+        //-         .col-md-6.col-lg-4.col-xl-3
+        //-             #product-2.single-product
+        //-                 .part-1
+        //-                     span.discount 15% off
+        //-                     ul
+        //-                         li
+        //-                             a(href='#')
+        //-                             i.fas.fa-shopping-cart
+        //-                         li
+        //-                             a(href='#')
+        //-                             i.fas.fa-heart
+        //-                         li
+        //-                             a(href='#')
+        //-                             i.fas.fa-plus
+        //-                         li
+        //-                             a(href='#')
+        //-                             i.fas.fa-expand
+        //-                 .part-2
+        //-                     h3.product-title Here Product Title
+        //-                     h4.product-price $49.99
+        //-         // Single Product
+        //-         .col-md-6.col-lg-4.col-xl-3
+        //-             #product-3.single-product
+        //-                 .part-1
+        //-                     ul
+        //-                         li
+        //-                             a(href='#')
+        //-                             i.fas.fa-shopping-cart
+        //-                         li
+        //-                             a(href='#')
+        //-                             i.fas.fa-heart
+        //-                         li
+        //-                             a(href='#')
+        //-                             i.fas.fa-plus
+        //-                         li
+        //-                             a(href='#')
+        //-                             i.fas.fa-expand
+        //-                 .part-2
+        //-                     h3.product-title Here Product Title
+        //-                     h4.product-old-price $79.99
+        //-                     h4.product-price $49.99
+        //-         // Single Product
+        //-         .col-md-6.col-lg-4.col-xl-3
+        //-             #product-4.single-product
+        //-                 .part-1
+        //-                     span.new new
+        //-                         ul
+        //-                             li
+        //-                                 a(href='#')
+        //-                                 i.fas.fa-shopping-cart
+        //-                             li
+        //-                                 a(href='#')
+        //-                                 i.fas.fa-heart
+        //-                             li
+        //-                                 a(href='#')
+        //-                                 i.fas.fa-plus
+        //-                             li
+        //-                                 a(href='#')
+        //-                                 i.fas.fa-expand
+        //-                 .part-2
+        //-                     h3.product-title Here Product Title
+        //-                     h4.product-price $49.99
+        //- // partial
 
 block append head
     link(rel='stylesheet' href='style/shop.css')

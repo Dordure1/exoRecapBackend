@@ -7,4 +7,5 @@ const addproductRouter = express.Router()
 addproductRouter.get("/", addproductController.index)
 addproductRouter.post("/", addproductController.productPost)
 
+
 module.exports = addproductRouter
