@@ -27,6 +27,10 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended:true}))
 
 
+/// pour les API
+app.use(express.json())
+
+
 app.set('view engine', 'pug')
 app.set('views', 'views')
 
