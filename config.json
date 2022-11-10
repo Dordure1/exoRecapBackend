@@ -2,7 +2,7 @@
     "dbName": "MotoBel",
     "dbConfig":
     {
-        "server": "5242",
+        "server": "SONIC-11",
         "options":
         {
             "PORT":1433,
